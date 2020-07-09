@@ -20,8 +20,9 @@ mypy = "*"
 bandit = "*"
 black = "==19.10b0"
 isort = "*"
+sphinx = "*"
 
 [packages]
 
 [requires]
-python_version = ">=3.6"
+python_version = "3.7"
