@@ -1,4 +1,4 @@
-name: Tests
+name: CI
 on: [push, pull_request]
 jobs:
   tests:
@@ -16,10 +16,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install pipenv
           pipenv install --dev
-      - run: pipenv run pytest
-      - uses: actions/upload-artifact@v1
+      - name: Run black lint
+        run: pipenv run black . --check --diff
+      - name: Run flake8
+        run: pipenv run flake8
+      - name: Run mypy
+        run: pipenv run mypy
+      - name: Run pytest
+        run: pipenv run pytest
+      - uses: actions/upload-artifact@v2
         with:
-          name: pytest-results-${{ matrix.python-version }}
+          name: htmlcov-${{ matrix.python-version }}
           path: htmlcov
-        # Use always() to always run this step to publish test results when there are test failures
         if: ${{ always() }}
