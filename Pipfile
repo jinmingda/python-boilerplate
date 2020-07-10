@@ -12,14 +12,15 @@ flake8-docstrings = "*"
 flake8-import-order = "*"
 flake8-bandit = "*"
 pep8-naming = "*"
-pytest = "*"
-pytest-cov = "*"
-pytest-xdist = "*"
 mypy = "*"
 bandit = "*"
 black = "==19.10b0"
 isort = "*"
 sphinx = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-xdist = "*"
+hypothesis = "*"
 
 [packages]
 
