@@ -1,7 +1,7 @@
 """Tests for module boilerplate.py."""
 import pytest
 from hypothesis import given
-from hypothesis import strategies as st
+from hypothesis.strategies import integers
 
 from boilerplate.boilerplate import add
 
@@ -13,6 +13,6 @@ def test_add_with_integers(x, y, expected):
     assert add(x, y) == expected
 
 
-@given(x=st.integers(), y=st.integers())
+@given(x=integers(), y=integers())
 def test_add_is_commutative(x, y):
     assert add(x, y) == add(y, x)
