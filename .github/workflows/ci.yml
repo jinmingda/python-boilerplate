@@ -17,7 +17,7 @@ jobs:
           pip install pipenv
           pipenv install --dev
       - name: Run lint
-        run: pipenv run pre-commit run -all-files --show-diff-on-failure
+        run: pipenv run pre-commit run --all-files --show-diff-on-failure
       - name: Run pytest
         run: pipenv run pytest
       - uses: actions/upload-artifact@v2
